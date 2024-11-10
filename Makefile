@@ -31,7 +31,6 @@ SRCS_NAME = main.c \
 			utils/ft_strlen.c \
 			utils/ft_substr.c \
 			utils/ft_split.c \
-			utils/ft_strdup.c \
 			utils/ft_isalpha.c \
 			utils/ft_is_special.c \
 			tokenization/tokenization.c \

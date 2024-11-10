@@ -16,6 +16,8 @@ int main()
 		t_token *a = tokenization(input);
 		print_tokens_list(&a);
 		free(a);
+
+		
 		if (input && *input)
 			add_history(input);
 		free(input);
