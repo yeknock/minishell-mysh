@@ -7,5 +7,8 @@ char	**ft_split(char const *s, char c);
 char	*ft_strdup(const char *str);
 int		ft_isalpha(int c);
 int	    ft_is_special(int c);
+void	ft_putstr_fd(char *s, int fd);
+int     ft_strcmp(char *s1, char *s2);
+
 
 #endif
