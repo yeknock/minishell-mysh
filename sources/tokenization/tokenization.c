@@ -87,6 +87,8 @@ t_token	*tokenization(char *rd_line)
 			word_tokenization(rd_line, &tokens_list, &index);
 		if (rd_line[index] == '|')
 			pipe_tokenization(rd_line, &tokens_list, &index);
+		if (rd_line[index] == '"')
+			db_quotes_tokenization(rd_line, &tokens_list, &index);
 		index++;
 	}
 	return (tokens_list);

@@ -32,5 +32,6 @@ void		word_tokenization(char *str, t_token **tokens_list, int *index);
 void		pipe_tokenization(char *str, t_token **tokens_list, int *index);
 void		redin_tokenization(char *str, t_token **tokens_list, int *index);
 void		redout_tokenization(char *str, t_token **tokens_list, int *index);
+void		db_quotes_tokenization(char *str, t_token **tokens_list, int *index);
 
 #endif

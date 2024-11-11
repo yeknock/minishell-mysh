@@ -1,4 +1,4 @@
-prefix=/Users/yenoqmartirosyan/Desktop/minishell/libraries/readline
+prefix=/Users/yenoqmartirosyan/Desktop/new_mysh/libraries/readline
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
