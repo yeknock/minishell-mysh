@@ -15,14 +15,14 @@ void	word_tokenization(char *str, t_token **tokens_list, int *index)
 	last_index = 0;
 	while(str[j])
 	{
-		if (ft_is_special(str[j]))
-			break;
-		
 		if ((j == *index && !ft_is_special(str[j])) || \
 			(j > 0 && ft_is_special(str[j - 1]) && !ft_is_special(str[j])))
 			first_index = j;
-		if (ft_is_special(str[j+1]) && !ft_is_special(str[j]))
+		if (ft_is_special(str[j+1]))
+		{
 			last_index = j;
+			break;
+		}
 		j++;
 	}
 	seperated_str = ft_substr(str, first_index, last_index - first_index + 1);
@@ -31,8 +31,7 @@ void	word_tokenization(char *str, t_token **tokens_list, int *index)
 		new_node = create_t_node(WORD, seperated_str);
 		add_t_node_to_back(tokens_list, new_node);
 	}
-	if (last_index - first_index != 0)
-		*index += last_index - first_index + 1;
+	*index += last_index - first_index + 1;
 }
 
 
@@ -53,25 +52,22 @@ void	pipe_tokenization(char *str, t_token **tokens_list, int *index)
 	{
 		if (str[j] != '|')
 			break;
-		if (str[j+1] && (str[j] == '|' && str[j+1] != '|'))
-		{
-			new_node = create_t_node(PIPE, seperated_str);
-			add_t_node_to_back(tokens_list, new_node);
+		new_node = create_t_node(PIPE, seperated_str);
+		add_t_node_to_back(tokens_list, new_node);
+		if (str[j] == '|' && str[j+1] != '|')
 			break;
-		}
 		else
-		{
-			new_node = create_t_node(PIPE, seperated_str);
-			add_t_node_to_back(tokens_list, new_node);
 			count_of_pipes++;
-		}
 		j++;
 	}
 	*index += count_of_pipes;
 }
 
 
-
+/*
+Review tokenization for "" (f.e. "heloo    |||      skadcjn")
+this - (heloo    |||      skadcjn), should be WORD
+ */
 
 
 t_token	*tokenization(char *rd_line)
