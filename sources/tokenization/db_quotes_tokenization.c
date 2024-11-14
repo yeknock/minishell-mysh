@@ -2,25 +2,51 @@
 
 void	db_quotes_tokenization(char *str, t_token **tokens_list, int *index)
 {
-	t_token			*new_node;
-	char			*seperated_str;
-	int				j;
-	int				count_of_db_quotes;
+	t_token		*new_node;
+	int			j;
+	int			first_index;
+	int			last_index;
+	char		*inner_word;
 
 	j = *index;
-	count_of_db_quotes = 0;
-	seperated_str = "\"";
+	inner_word = NULL;
+	new_node = NULL;
+	first_index = 0;
+	last_index = 0;
 	while(str[j])
 	{
-		if (str[j] != '"')
+		if (str[j] == '"' && str[j+1] == '"')
+		{
+			new_node = create_t_node(DOUBLE_QUOTES, "\"");
+			add_t_node_to_back(tokens_list, new_node);
+			new_node = create_t_node(DOUBLE_QUOTES, "\"");
+			add_t_node_to_back(tokens_list, new_node);
+			*index += 1;
+			return ;
+		}
+		if (str[j] == '"' && str[j+1] != '"')
+			first_index = j + 1;
+		if (str[j] != '"' && str[j+1] == '"')
+		{
+			last_index = j;
+			new_node = create_t_node(DOUBLE_QUOTES, "\"");
+			add_t_node_to_back(tokens_list, new_node);
 			break;
-        new_node = create_t_node(DOUBLE_QUOTES, seperated_str);
-        add_t_node_to_back(tokens_list, new_node);
-		if (str[j+1] && (str[j] == '"' && str[j+1] != '"'))
-			break;
-		else
-			count_of_db_quotes++;
+		}
 		j++;
 	}
-	*index += count_of_db_quotes;
+	if (str[j] == '\0')
+	{
+		printf("\nError!\n");
+		return ;
+	}
+	inner_word = ft_substr(str, first_index, last_index - first_index + 1);
+	if (inner_word && *inner_word != '\0')
+	{
+		new_node = create_t_node(WORD, inner_word);
+		add_t_node_to_back(tokens_list, new_node);
+		new_node = create_t_node(DOUBLE_QUOTES, "\"");
+		add_t_node_to_back(tokens_list, new_node);
+	}
+	*index += j + 1;
 }
