@@ -1,6 +1,7 @@
 #ifndef TOKENIZATION_H
 # define TOKENIZATION_H
 
+
 typedef enum e_token_type
 {
 	WORD,			// For commands and arguments
@@ -13,6 +14,7 @@ typedef enum e_token_type
 	SINGLE_QUOTES,	// For ''
 	ENV_VAR,		// For environment variables
 }   t_token_type;
+
 
 
 typedef struct s_token
@@ -31,7 +33,6 @@ t_token		*tokenization(char *rd_line);
 void		word_tokenization(char *str, t_token **tokens_list, int *index);
 void		pipe_tokenization(char *str, t_token **tokens_list, int *index);
 void		redin_tokenization(char *str, t_token **tokens_list, int *index);
-void		redout_tokenization(char *str, t_token **tokens_list, int *index);
 void		db_quotes_tokenization(char *str, t_token **tokens_list, int *index);
 
 #endif

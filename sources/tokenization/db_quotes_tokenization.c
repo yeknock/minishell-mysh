@@ -48,5 +48,5 @@ void	db_quotes_tokenization(char *str, t_token **tokens_list, int *index)
 		new_node = create_t_node(DOUBLE_QUOTES, "\"");
 		add_t_node_to_back(tokens_list, new_node);
 	}
-	*index += j + 1;
+	*index += last_index - first_index + 2;
 }

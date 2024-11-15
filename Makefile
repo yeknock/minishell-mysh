@@ -9,7 +9,7 @@ CC = cc
 
 # Compilator flags
 INC_DIRS = -I./includes -I./$(LIBS_DIR)/$(READLINE)/include
-CFLAGS =  $(INC_DIRS) -Wall -Wextra -Werror
+CFLAGS =  $(INC_DIRS) -Wall -Wextra -Werror # -g -O0
 
 # Libraries
 LIBS_DIR = libraries
@@ -38,7 +38,7 @@ SRCS_NAME = main.c \
 			tokenization/add_token_to_back.c \
 			tokenization/print_tokens_list.c \
 			tokenization/redin_redout_tokenization.c \
-			tokenization/db_quotes_tokenization.c \
+			tokenization/db_quotes_tokenization.c 
 
 # Objects file names
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAME))

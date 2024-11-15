@@ -1,10 +1,13 @@
 #include "../includes/minishell.h"
 
-int main()
+int main(int argc, char **argv, char **envp)
 {
 	rl_bind_key('\t', rl_complete);
 	char	*input;
 	
+	(void)argc;
+	(void)argv;
+	(void)envp;
 	while(1)
 	{
 		printf("\x1B[31m");

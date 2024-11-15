@@ -85,6 +85,8 @@ t_token	*tokenization(char *rd_line)
 			pipe_tokenization(rd_line, &tokens_list, &index);
 		if (rd_line[index] == '"')
 			db_quotes_tokenization(rd_line, &tokens_list, &index);
+		// if (rd_line[index] == '<')
+		// 	rd_in_tokenization(rd_line, &tokens_list, &index);
 		index++;
 	}
 	return (tokens_list);
