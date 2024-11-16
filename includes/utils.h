@@ -4,7 +4,7 @@
 size_t  ft_strlen(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
-char	*ft_strdup(const char *str);
+int	    ft_isdigit(int c);
 int		ft_isalpha(int c);
 int	    ft_is_special(int c);
 void	ft_putstr_fd(char *s, int fd);

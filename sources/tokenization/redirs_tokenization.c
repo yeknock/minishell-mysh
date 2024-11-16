@@ -10,6 +10,8 @@ void	redin_hdoc_tokenization(char *str, t_token **tokens_list, int *index)
 	count_of_redin_hdoc = 0;
 	while(str[j])
 	{
+		if (str[j] != '<')
+			break;
 		if (str[j] == '<' && str[j+1] == '<')
 		{
 			new_node = create_t_node(REDIR_HEREDOC, "<<");
@@ -26,7 +28,7 @@ void	redin_hdoc_tokenization(char *str, t_token **tokens_list, int *index)
 		}
 		j++;
 	}
-	*index += count_of_redin_hdoc;
+	*index += count_of_redin_hdoc - 1;
 }
 
 
@@ -42,6 +44,8 @@ void	redout_append_tokenization(char *str, t_token **tokens_list, int *index)
 	count_of_redout_append = 0;
 	while(str[j])
 	{
+		if (str[j] != '>')
+			break;
 		if (str[j] == '>' && str[j+1] == '>')
 		{
 			new_node = create_t_node(REDIR_HEREDOC, ">>");
@@ -58,5 +62,5 @@ void	redout_append_tokenization(char *str, t_token **tokens_list, int *index)
 		}
 		j++;
 	}
-	*index += count_of_redout_append;
+	*index += count_of_redout_append - 1;
 }

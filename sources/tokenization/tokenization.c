@@ -85,6 +85,8 @@ t_token	*tokenization(char *rd_line)
 			redin_hdoc_tokenization(rd_line, &tokens_list, &index);
 		if (rd_line[index] == '>')
 			redout_append_tokenization(rd_line, &tokens_list, &index);
+		if (rd_line[index] == '$')
+			env_var_tokenization(rd_line, &tokens_list, &index);
 		index++;
 	}
 	return (tokens_list);

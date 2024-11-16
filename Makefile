@@ -33,12 +33,14 @@ SRCS_NAME = main.c \
 			utils/ft_split.c \
 			utils/ft_isalpha.c \
 			utils/ft_is_special.c \
+			utils/ft_isdigit.c \
 			tokenization/tokenization.c \
 			tokenization/create_t_node.c \
 			tokenization/add_token_to_back.c \
 			tokenization/print_tokens_list.c \
 			tokenization/redirs_tokenization.c \
-			tokenization/db_quotes_tokenization.c 
+			tokenization/db_quotes_tokenization.c \
+			tokenization/env_var_tokenization.c 
 
 # Objects file names
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAME))
