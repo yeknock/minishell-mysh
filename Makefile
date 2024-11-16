@@ -40,6 +40,7 @@ SRCS_NAME = main.c \
 			tokenization/print_tokens_list.c \
 			tokenization/redirs_tokenization.c \
 			tokenization/db_quotes_tokenization.c \
+			tokenization/sg_quotes_tokenization.c \
 			tokenization/env_var_tokenization.c 
 
 # Objects file names

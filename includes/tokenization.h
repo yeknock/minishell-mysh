@@ -33,6 +33,7 @@ t_token		*tokenization(char *rd_line);
 void		word_tokenization(char *str, t_token **tokens_list, int *index);
 void		pipe_tokenization(char *str, t_token **tokens_list, int *index);
 void		db_quotes_tokenization(char *str, t_token **tokens_list, int *index);
+void		sg_quotes_tokenization(char *str, t_token **tokens_list, int *index);
 void		redin_hdoc_tokenization(char *str, t_token **tokens_list, int *index);
 void		redout_append_tokenization(char *str, t_token **tokens_list, int *index);
 void		env_var_tokenization(char *str, t_token **tokens_list, int *index);

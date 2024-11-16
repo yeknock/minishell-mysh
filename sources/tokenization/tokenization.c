@@ -81,12 +81,15 @@ t_token	*tokenization(char *rd_line)
 			pipe_tokenization(rd_line, &tokens_list, &index);
 		if (rd_line[index] == '"')
 			db_quotes_tokenization(rd_line, &tokens_list, &index);
+		if (rd_line[index] == '\'')
+			sg_quotes_tokenization(rd_line, &tokens_list, &index);
 		if (rd_line[index] == '<')
 			redin_hdoc_tokenization(rd_line, &tokens_list, &index);
 		if (rd_line[index] == '>')
 			redout_append_tokenization(rd_line, &tokens_list, &index);
 		if (rd_line[index] == '$')
 			env_var_tokenization(rd_line, &tokens_list, &index);
+		// and also make env variables work in ""
 		index++;
 	}
 	return (tokens_list);
