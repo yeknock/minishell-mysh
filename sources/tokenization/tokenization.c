@@ -64,10 +64,6 @@ void	pipe_tokenization(char *str, t_token **tokens_list, int *index)
 }
 
 
-/*
-Review tokenization for "" (f.e. "heloo    |||      skadcjn")
-this - (heloo    |||      skadcjn), should be WORD
- */
 
 
 t_token	*tokenization(char *rd_line)
@@ -85,8 +81,10 @@ t_token	*tokenization(char *rd_line)
 			pipe_tokenization(rd_line, &tokens_list, &index);
 		if (rd_line[index] == '"')
 			db_quotes_tokenization(rd_line, &tokens_list, &index);
-		// if (rd_line[index] == '<')
-		// 	rd_in_tokenization(rd_line, &tokens_list, &index);
+		if (rd_line[index] == '<')
+			redin_hdoc_tokenization(rd_line, &tokens_list, &index);
+		if (rd_line[index] == '>')
+			redout_append_tokenization(rd_line, &tokens_list, &index);
 		index++;
 	}
 	return (tokens_list);

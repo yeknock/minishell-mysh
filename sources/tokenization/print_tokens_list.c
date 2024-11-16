@@ -7,7 +7,7 @@ void	print_tokens_list(t_token **lst)
 	temp = *lst;
 	while(temp)
 	{
-		printf("%s -> ", temp -> value);
+		printf("%s \e[1m->\x1B[0m\e[m ", temp -> value);
 		temp = temp -> next;
 	}
 	printf("\n");
