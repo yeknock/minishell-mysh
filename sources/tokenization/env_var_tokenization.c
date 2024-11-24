@@ -15,9 +15,8 @@ void	env_var_tokenization(char *str, t_token **tokens_list, int *index)
 	while(str[j])
 	{
 		if (str[j] == '$' && (str[j+1] == '_' || ft_isalpha(str[j+1]) || ft_isdigit(str[j+1])))
-		{
 			first_index = j + 1;
-		}
+
 		if ((str[j] == '_' || ft_isalpha(str[j]) || ft_isdigit(str[j])) && \
 			(str[j+1] != '_' && !ft_isalpha(str[j+1]) && !ft_isdigit(str[j+1])))
 		{

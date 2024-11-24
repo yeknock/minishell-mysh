@@ -12,14 +12,12 @@ int main(int argc, char **argv, char **envp)
 	{
 		printf("\x1B[31m");
 		input = readline("\e[1mmysh$\x1B[0m\e[m ");
-
 		if (!input)
-			break;
+			exit(0);	//this part of code handles to Ctrl+D (exiting program part)
 
 		t_token *a = tokenization(input);
 		print_tokens_list(&a);
 		free(a);
-
 		
 		if (input && *input)
 			add_history(input);

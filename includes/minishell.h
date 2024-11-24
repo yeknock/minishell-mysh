@@ -10,9 +10,8 @@
 # include <unistd.h>
 # include "utils.h"
 # include "tokenization.h"
+# include "parsing.h"
 # include "readline/readline.h"
 # include "readline/history.h"
-
-
 
 #endif

@@ -18,6 +18,7 @@ READLINE_LIB_PATH = $(LIBS_DIR)/readline/lib
 # Headers
 HEADERS = 	includes/minishell.h \
 			includes/utils.h \
+			includes/parsing.h \
 			includes/tokenization.h
 
 # Source directory
@@ -41,7 +42,8 @@ SRCS_NAME = main.c \
 			tokenization/redirs_tokenization.c \
 			tokenization/db_quotes_tokenization.c \
 			tokenization/sg_quotes_tokenization.c \
-			tokenization/env_var_tokenization.c 
+			tokenization/env_var_tokenization.c \
+			parsing/parsing.c
 
 # Objects file names
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_NAME))
@@ -57,6 +59,7 @@ $(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(HEADERS) Makefile
 	@mkdir -p $(OBJS_DIR)
 	@mkdir -p $(OBJS_DIR)/utils
 	@mkdir -p $(OBJS_DIR)/tokenization
+	@mkdir -p $(OBJS_DIR)/parsing
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Configuring readline

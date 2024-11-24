@@ -65,7 +65,6 @@ void	pipe_tokenization(char *str, t_token **tokens_list, int *index)
 
 
 
-
 t_token	*tokenization(char *rd_line)
 {
 	t_token	*tokens_list;
@@ -89,7 +88,6 @@ t_token	*tokenization(char *rd_line)
 			redout_append_tokenization(rd_line, &tokens_list, &index);
 		if (rd_line[index] == '$')
 			env_var_tokenization(rd_line, &tokens_list, &index);
-		// and also make env variables work in ""
 		index++;
 	}
 	return (tokens_list);
